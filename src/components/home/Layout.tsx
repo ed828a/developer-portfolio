@@ -7,7 +7,9 @@ type Props = {
 
 const HomeLayout = ({ children, className }: Props) => {
   return (
-    <div className={`w-full h-full inline-block z-0 px-32 ${className} `}>
+    <div
+      className={`w-full h-full inline-block z-0 px-16 lg:px-32 ${className} `}
+    >
       {children}
     </div>
   );
