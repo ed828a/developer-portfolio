@@ -20,14 +20,14 @@ const MovingImage = ({ title, img, link }: MovingImagProps) => {
 
   function handleMouse(event: any) {
     console.log("x", event.pagex);
-    imgRef.current.style.display = "inline-block";
+    (imgRef.current as any).style.display = "inline-block";
     x.set(event.pageX);
     y.set(-10);
   }
 
   function handleMouseLeave(event: any) {
     console.log("leave x ", event.pagex);
-    imgRef.current.style.display = "none";
+    (imgRef.current as any).style.display = "none";
     x.set(0);
     y.set(0);
   }
@@ -50,6 +50,8 @@ const MovingImage = ({ title, img, link }: MovingImagProps) => {
         height={720}
         ref={imgRef}
         style={{ x, y }}
+        whileInView={{ opacity: 1, transition: { duration: 0.3 } }}
+        initial={{ opacity: 0 }}
       />
     </Link>
   );
@@ -64,11 +66,16 @@ type ArticleProps = {
 
 const Article = ({ img, title, date, link }: ArticleProps) => {
   return (
-    <li className="relative w-full px-4 py-6 my-4 rounded-xl flex items-center justify-between bg-primary-foreground text-primary first:mt-0 border border-solid border-primary border-r-4 border-b-4">
+    <motion.li
+      initial={{ y: 200 }}
+      whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
+      viewport={{ once: true }}
+      className="relative w-full px-4 py-6 my-4 rounded-xl flex items-center justify-between bg-primary-foreground text-primary first:mt-0 border border-solid border-primary border-r-8 border-b-8"
+    >
       <MovingImage title={title} img={img} link={link} />
 
       <span className="text-purple-400 font-semibold pl-4">{date}</span>
-    </li>
+    </motion.li>
   );
 };
 
@@ -106,6 +113,7 @@ const FeaturedArticle = ({
           priority
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.5 }}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
         />
       </Link>
       <Link href={link} target="_blank" className="">
@@ -123,7 +131,7 @@ type Props = {};
 
 const ArticlesPage = (props: Props) => {
   return (
-    <div className="mb-16 flex flex-col items-center justify-center overflow-hidden">
+    <div className="mb-16 flex flex-col items-center justify-center ">
       <HomeLayout className="pt-16">
         <AnimatedText text="Words Can Change The World! " className="mb-16" />
         <ul className="grid grid-cols-2 gap-16 p-4 ">
@@ -148,54 +156,15 @@ const ArticlesPage = (props: Props) => {
           All Articles
         </h2>
         <ul className="">
-          <Article
-            title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-            date="March 22, 2023"
-            link="/articles"
-            img="/images/articles/create modal component in react using react portals.png"
-          />
-          <Article
-            title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-            date="March 22, 2023"
-            link="/articles"
-            img="/images/articles/create modal component in react using react portals.png"
-          />
-          <Article
-            title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-            date="March 22, 2023"
-            link="/articles"
-            img="/images/articles/create modal component in react using react portals.png"
-          />
-          <Article
-            title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-            date="March 22, 2023"
-            link="/articles"
-            img="/images/articles/create modal component in react using react portals.png"
-          />
-          <Article
-            title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-            date="March 22, 2023"
-            link="/articles"
-            img="/images/articles/create modal component in react using react portals.png"
-          />
-          <Article
-            title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-            date="March 22, 2023"
-            link="/articles"
-            img="/images/articles/create modal component in react using react portals.png"
-          />
-          <Article
-            title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-            date="March 22, 2023"
-            link="/articles"
-            img="/images/articles/create modal component in react using react portals.png"
-          />
-          <Article
-            title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-            date="March 22, 2023"
-            link="/articles"
-            img="/images/articles/create modal component in react using react portals.png"
-          />
+          {articles.map((article, index) => (
+            <Article
+              key={index}
+              title={article.title}
+              date={article.date}
+              link={article.link}
+              img={article.img}
+            />
+          ))}
         </ul>
       </HomeLayout>
     </div>
@@ -203,3 +172,54 @@ const ArticlesPage = (props: Props) => {
 };
 
 export default ArticlesPage;
+
+const articles = [
+  {
+    title: "create loading screen in react js",
+    date: "March 22, 2024",
+    link: "/",
+    img: "/images/articles/create loading screen in react js.jpg",
+  },
+  {
+    title: "create modal component in react using react portals",
+    date: "March 22, 2024",
+    link: "/",
+    img: "/images/articles/create modal component in react using react portals.png",
+  },
+  {
+    title: "form validation in reactjs using custom react hook",
+    date: "March 22, 2024",
+    link: "/",
+    img: "/images/articles/form validation in reactjs using custom react hook.png",
+  },
+  {
+    title: "pagination component in reactjs",
+    date: "March 22, 2024",
+    link: "/",
+    img: "/images/articles/pagination component in reactjs.jpg",
+  },
+  {
+    title: "smooth scrolling in reactjs",
+    date: "March 22, 2024",
+    link: "/",
+    img: "/images/articles/smooth scrolling in reactjs.png",
+  },
+  {
+    title: "todo list app built using react redux and framer motion",
+    date: "March 22, 2024",
+    link: "/",
+    img: "/images/articles/todo list app built using react redux and framer motion.png",
+  },
+  {
+    title: "What is higher order component in React",
+    date: "March 22, 2024",
+    link: "/",
+    img: "/images/articles/What is higher order component in React.jpg",
+  },
+  {
+    title: "What is Redux with easy explanation",
+    date: "March 22, 2024",
+    link: "/",
+    img: "/images/articles/What is Redux with easy explanation.png",
+  },
+];

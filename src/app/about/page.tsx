@@ -44,9 +44,12 @@ type Props = {};
 
 const AboutPage = (props: Props) => {
   return (
-    <div className="flex w-full flex-col items-center justify-center">
-      <HomeLayout className="pt-0 pb-16">
-        <AnimatedText text="Passion Fuels Purpose! " className="my-16" />
+    <div className="flex w-full flex-col items-center justify-center relative">
+      <HomeLayout className="pt-0 pb-16 relative">
+        <AnimatedText
+          text="Passion Fuels Purpose! "
+          className="my-16 relative"
+        />
         <div className="grid w-full grid-cols-8 gap-15">
           <div className="col-span-3 flex flex-col items-start justify-start">
             <h2 className="mb-4 text-lg font-bold uppercase text-primary/75 ">
@@ -73,13 +76,15 @@ const AboutPage = (props: Props) => {
             </p>
           </div>
           <div className="col-span-3 raltive h-max rounded-2xl border-2 border-solid border-primary bg-primary-foreground p-8 relative mx-4">
-            <div className="absolute top-0 -right-4 -z-10 w-[103%] h-[103%] rounded-[2rem] bg-primary" />
+            <div className="absolute top-0 -right-3 -z-10 w-[103%] h-[103%] rounded-[2rem] bg-primary rounded-bl-[1.4rem] rounded-br-[1.5rem]" />
             <Image
               src={"/images/profile/developer-pic-2.jpg"}
               alt="developer pic"
               width={200}
               height={200}
               className="w-full h-auto rounded-2xl"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
           <div className="col-span-2 flex flex-col items-end justify-between">

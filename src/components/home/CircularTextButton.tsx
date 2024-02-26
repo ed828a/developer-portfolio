@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const text = "Front-end Developer and UI Designer";
 
@@ -26,15 +27,15 @@ const CircularTextButton = ({ text, className }: Props) => {
             d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
           />
         </defs>
-        <text fill="#000">
-          <textPath xlinkHref="#circlePath" className={cn("text-xl")}>
+        <text fill="currentColor">
+          <textPath xlinkHref="#circlePath" className={cn("text-xl font-bold")}>
             {text}
           </textPath>
         </text>
       </motion.svg>
       <Link
         href="mailto:ed828a@gmail.com"
-        className="w-16 h-16 md:w-24 md:h-24 absolute top-0 left-0 right-0 bottom-0 m-auto bg-black text-white rounded-full flex items-center justify-center font-semibold"
+        className="w-16 h-16 md:w-24 md:h-24 absolute top-0 left-0 right-0 bottom-0 m-auto bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold"
       >
         Hire Me
       </Link>

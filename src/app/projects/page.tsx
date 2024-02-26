@@ -130,7 +130,7 @@ type Props = {};
 const ProjectsPage = (props: Props) => {
   return (
     <div className="mb-16 flex flex-col items-center justify-center ">
-      <HomeLayout className="pt-16">
+      <HomeLayout className="pt-16 relative">
         <AnimatedText text="Imagination Trumps Knowledge!" className="mb-16" />
         <div className="grid grid-cols-12 gap-24 gap-y-32">
           <div className="col-span-12">
@@ -153,7 +153,6 @@ const ProjectsPage = (props: Props) => {
             />
           </div>
           <div className="col-span-6">
-            {" "}
             <Project
               title="Crypto Screener Application"
               link="/"
@@ -173,7 +172,6 @@ const ProjectsPage = (props: Props) => {
             />
           </div>
           <div className="col-span-6">
-            {" "}
             <Project
               title="Crypto Screener Application"
               link="/"
@@ -183,7 +181,6 @@ const ProjectsPage = (props: Props) => {
             />
           </div>
           <div className="col-span-6">
-            {" "}
             <Project
               title="Crypto Screener Application"
               link="/"

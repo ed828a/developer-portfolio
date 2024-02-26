@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 import LiIcon from "./LiIcon";
@@ -20,10 +22,11 @@ const Details = ({
   work,
 }: DetailsProps) => {
   const ref = useRef(null);
+
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between"
+      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between relative"
     >
       <LiIcon reference={ref} />
       <motion.div
@@ -36,7 +39,7 @@ const Details = ({
           {position}&nbsp;
           <a
             href={companyLink}
-            className="capitalize text-purple-400"
+            className="capitalize text-purple-400 dark:text-green-400"
             target="_blank"
           >
             @{company}

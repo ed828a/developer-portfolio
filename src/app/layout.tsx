@@ -4,6 +4,7 @@ import Providers from "@/components/providers/Providers";
 import { dancingScript, montserrat } from "@/lib/utils";
 import Topbar from "@/components/navs/Topbar";
 import Footer from "@/components/navs/Footer";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className}`}>
+        {/* <Script src="/scripts/themeScript.js" strategy="beforeInteractive" /> */}
         <Providers>
           <div className="h-24">
             <Topbar />
