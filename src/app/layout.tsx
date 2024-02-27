@@ -17,14 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="min-w-[300px]">
       <body className={`${montserrat.className}`}>
         {/* <Script src="/scripts/themeScript.js" strategy="beforeInteractive" /> */}
         <Providers>
-          <div className="h-24">
+          <div className="h-24 w-screen">
             <Topbar />
           </div>
-          <div className="min-h-[calc(100vh-6rem)] ">{children}</div>
+          <div className="min-h-[calc(100vh-6rem)] w-screen">{children}</div>
           <Footer />
         </Providers>
       </body>

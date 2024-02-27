@@ -27,12 +27,12 @@ const FeaturedProject = ({
   github,
 }: FeaturedProjectProps) => {
   return (
-    <article className="w-full flex items-center justify-between rounded-3xl border border-solid border-primary bg-primary-foreground shadow-2xl p-12 relative">
+    <article className="w-full flex flex-col md:flex-row items-center justify-between  bg-primary-foreground relative shadow-2xl p-12 rounded-3xl border border-solid border-primary ">
       <div className="absolute top-0 -right-4 -z-10 w-[101%] h-[103%] rounded-[2rem] rounded-br-[1.5rem] bg-primary" />
       <Link
         href={link}
         target="_blank"
-        className="w-1/2 cursor-pointer overflow-hidden rounded-lg"
+        className="w-full md:w-1/2 cursor-pointer overflow-hidden rounded-lg"
       >
         <FramerImage
           src={img}
@@ -45,7 +45,8 @@ const FeaturedProject = ({
           transition={{ duration: 0.5 }}
         />
       </Link>
-      <div className="w-1/2 flex flex-col items-start justify-between pl-6">
+
+      <div className="w-full md:w-1/2 flex flex-col items-start justify-between pl-6">
         <span className="text-purple-400 font-medium text-xl">{type}</span>
         <Link
           href={link}

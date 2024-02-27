@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import CustomLink from "./CustomLink";
 import {
@@ -42,10 +42,25 @@ const Topbar = (props: Props) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  // click outside of div
+  const popRef = useRef(null);
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  const handleOutsideClick = (e: any) => {
+    if (popRef.current && !(popRef.current as any).contains(e.target)) {
+      setIsOpen(false);
+    }
+  };
+
   return (
-    <header className="w-full px-32 py-8 font-medium flex items-center justify-between min-w-[300px] relative">
+    <header className="w-full px-8 md:px-16 lg:px-32 py-8 font-medium flex items-center justify-between min-w-[300px] relativ">
       <button
-        className="flex flex-col justify-center items-center lg:hidden"
+        className="flex flex-col justify-center items-center lg:hidden z-50"
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <span
@@ -171,6 +186,7 @@ const Topbar = (props: Props) => {
             flex: isOpen,
           }
         )}
+        ref={popRef}
       >
         <nav className="flex items-start flex-col justify-center gap-2">
           {links.map((link) => (
@@ -191,6 +207,7 @@ const Topbar = (props: Props) => {
             className="w-8"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 1.5 }}
+            onClick={() => setIsOpen(false)}
           >
             <TwitterIcon />
           </motion.a>
@@ -200,6 +217,7 @@ const Topbar = (props: Props) => {
             className="w-8"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 1.5 }}
+            onClick={() => setIsOpen(false)}
           >
             <GithubIcon />
           </motion.a>
@@ -209,6 +227,7 @@ const Topbar = (props: Props) => {
             className="w-8"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 1.5 }}
+            onClick={() => setIsOpen(false)}
           >
             <LinkedInIcon />
           </motion.a>
@@ -218,6 +237,7 @@ const Topbar = (props: Props) => {
             className="w-8 dark:bg-white rounded-full"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 1.5 }}
+            onClick={() => setIsOpen(false)}
           >
             <PinterestIcon />
           </motion.a>
@@ -227,15 +247,17 @@ const Topbar = (props: Props) => {
             className="w-8"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 1.5 }}
+            onClick={() => setIsOpen(false)}
           >
             <DribbbleIcon />
           </motion.a>
 
           <button
             className="flex items-center rounded-full p-1 bg-primary"
-            onClick={() =>
-              setMode((prev: string) => (prev === "dark" ? "light" : "dark"))
-            }
+            onClick={() => {
+              setMode((prev: string) => (prev === "dark" ? "light" : "dark"));
+              setIsOpen(false);
+            }}
           >
             {mode === "dark" ? (
               <SunIcon className="fill-primary" />

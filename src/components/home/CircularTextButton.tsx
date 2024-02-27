@@ -19,7 +19,7 @@ const CircularTextButton = ({ text, className }: Props) => {
         animate={{ rotate: 360 }}
         transition={{ duration: 8, ease: "linear", repeat: Infinity }}
         viewBox="0 0 300 300"
-        className="w-64 h-64 md:w-[300px] md:h-[300px] "
+        className="w-48 h-48 md:w-[300px] md:h-[300px] "
       >
         <defs>
           <path
@@ -35,7 +35,7 @@ const CircularTextButton = ({ text, className }: Props) => {
       </motion.svg>
       <Link
         href="mailto:ed828a@gmail.com"
-        className="w-16 h-16 md:w-24 md:h-24 absolute top-0 left-0 right-0 bottom-0 m-auto bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold"
+        className="w-14 h-14 md:w-24 md:h-24 absolute top-0 left-0 right-0 bottom-0 m-auto bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold text-xs"
       >
         Hire Me
       </Link>

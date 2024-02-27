@@ -6,7 +6,7 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <footer className="w-full border-t-2 border-solid border-primary font-medium text-lg">
-      <HomeLayout className="py-8 flex items-center justify-between">
+      <HomeLayout className="py-8 flex flex-col-reverse gap-2 md:flex-row items-center justify-between">
         <span className="">
           {new Date().getFullYear()} &copy; All Rights Reserved.
         </span>

@@ -45,13 +45,13 @@ type Props = {};
 const AboutPage = (props: Props) => {
   return (
     <div className="flex w-full flex-col items-center justify-center relative">
-      <HomeLayout className="pt-0 pb-16 relative">
+      <HomeLayout className="pt-0 md:pb-16 relative">
         <AnimatedText
           text="Passion Fuels Purpose! "
-          className="my-16 relative"
+          className="mb-4 md:my-16  relative text-2xl md:text-3xl lg:text-5xl xl:text-7xl 2xl:text-8xl text-center   "
         />
-        <div className="grid w-full grid-cols-8 gap-15">
-          <div className="col-span-3 flex flex-col items-start justify-start">
+        <div className="grid w-full grid-cols-8 md:gap-16">
+          <div className="col-span-8 order-1 sm:order-0 md:col-span-3 flex flex-col items-start justify-start p-8 md:p-0">
             <h2 className="mb-4 text-lg font-bold uppercase text-primary/75 ">
               Biography
             </h2>
@@ -75,40 +75,42 @@ const AboutPage = (props: Props) => {
               project.
             </p>
           </div>
-          <div className="col-span-3 raltive h-max rounded-2xl border-2 border-solid border-primary bg-primary-foreground p-8 relative mx-4">
-            <div className="absolute top-0 -right-3 -z-10 w-[103%] h-[103%] rounded-[2rem] bg-primary rounded-bl-[1.4rem] rounded-br-[1.5rem]" />
-            <Image
-              src={"/images/profile/developer-pic-2.jpg"}
-              alt="developer pic"
-              width={200}
-              height={200}
-              className="w-full h-auto rounded-2xl"
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
+          <div className="col-span-8 order-0 md:order-1 md:col-span-3">
+            <div className="w-1/2 mx-auto md:w-full h-max rounded-2xl border-2 border-solid border-primary bg-primary-foreground p-8 relative md:mx-4">
+              <div className="absolute top-0 -right-3 -z-10 w-[103%] h-[103%] rounded-[2rem] bg-primary rounded-bl-[1.4rem] rounded-br-[1.5rem]" />
+              <Image
+                src={"/images/profile/developer-pic-2.jpg"}
+                alt="developer pic"
+                width={200}
+                height={200}
+                className="w-full h-auto rounded-2xl"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
           </div>
-          <div className="col-span-2 flex flex-col items-end justify-between">
+          <div className="col-span-8 order-2 md:col-span-2 flex flex-row md:flex-col items-end justify-between px-8 md:px-0">
             <div className="flex flex-col items-end justify-center">
-              <span className="text-7xl font-bold inline-block">
+              <span className="text-3xl md:text-7xl font-bold inline-block">
                 <AnimatedNumbers value={50} />+
               </span>
-              <h2 className="text-xl font-medium capitalize text-primary/75">
+              <h2 className="text-sm md:text-xl font-medium capitalize text-primary/75">
                 satisfied clients
               </h2>
             </div>
             <div className="flex flex-col items-end justify-center">
-              <span className="text-7xl font-bold inline-block">
+              <span className="text-3xl md:text-7xl font-bold inline-block">
                 <AnimatedNumbers value={40} />+
               </span>
-              <h2 className="text-xl font-medium capitalize text-primary/75">
+              <h2 className="text-sm md:text-xl font-medium capitalize text-primary/75">
                 projects completed
               </h2>
             </div>
             <div className="flex flex-col items-end justify-center">
-              <span className="text-7xl font-bold inline-block">
+              <span className="text-3xl md:text-7xl font-bold inline-block">
                 <AnimatedNumbers value={4} />+
               </span>
-              <h2 className="text-xl font-medium capitalize text-primary/75">
+              <h2 className="text-sm md:text-xl font-medium capitalize text-primary/75">
                 yearsof experience
               </h2>
             </div>

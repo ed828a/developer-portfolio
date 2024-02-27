@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const Skill = ({ name, x, y }: { name: string; x: string; y: string }) => {
   return (
     <motion.div
-      className="flex items-center justify-center rounded-full font-semibold bg-primary text-primary-foreground px-6 py-3 shadow-primary cursor-pointer absolute"
+      className="flex items-center justify-center rounded-full font-semibold bg-primary text-primary-foreground px-1 py-1 md:px-6 md:py-3 shadow-primary cursor-pointer absolute"
       whileHover={{ scale: 1.05 }}
       initial={{ x: 0, y: 0 }}
       whileInView={{ x, y, transition: { duration: 1.5 } }}
@@ -21,10 +21,12 @@ type Props = {};
 const Skills = (props: Props) => {
   return (
     <div className="w-full ">
-      <h2 className="font-bold text-8xl mt-64 text-center">Skills</h2>
-      <div className="h-screen relative flex items-center justify-center rounded-full bg-circularLight dark:bg-circularDark">
+      <h2 className="font-bold text-3xl md:text-6xl lg:text-8xl mt-8 mb-2 md:mt-64 text-center">
+        Skills
+      </h2>
+      <div className="w-full min-h-72 md:w-auto md:h-screen relative flex items-center justify-center rounded-full bg-circularLightSm dark:bg-circularDarkSm lg:bg-circularLight lg:dark:bg-circularDark">
         <motion.div
-          className="flex items-center justify-center rounded-full font-semibold bg-primary text-primary-foreground p-8 w-24 h-24 shadow-primary cursor-pointer"
+          className="flex items-center justify-center rounded-full font-semibold bg-primary text-primary-foreground p-2 w-12 h-12 md:p-8 md:w-24 md:h-24 shadow-primary cursor-pointer"
           whileHover={{ scale: 1.05 }}
         >
           Web

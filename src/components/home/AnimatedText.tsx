@@ -22,7 +22,7 @@ const AnimatedText = ({ text, className }: Props) => {
   return (
     <div
       className={cn(
-        "w-full mx-auto py-2 flex items-center justify-center text-center"
+        "w-full mx-auto py-2 flex items-center justify-center text-center sm:py-0"
       )}
     >
       <motion.h1
@@ -30,7 +30,7 @@ const AnimatedText = ({ text, className }: Props) => {
         initial="initial"
         animate="animate"
         className={cn(
-          "inline-block w-full text-primary font-bold capitalize text-8xl",
+          "inline-block w-full text-primary font-bold capitalize text-lg",
           className
         )}
       >

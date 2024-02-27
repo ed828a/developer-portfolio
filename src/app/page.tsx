@@ -11,14 +11,14 @@ export default function Home() {
   return (
     <main className="flex items-center text-primary w-full min-h-screen relative">
       <HomeLayout className="pt-0">
-        <div className="flex items-center justify-between w-full">
-          <div className="w-1/2 ">
+        <div className="flex flex-col md:flex-row justify-between w-full">
+          <div className="w-full md:w-1/2">
             <Image
               src={"/images/profile/developer-pic-1.png"}
               width={512}
               height={512}
               alt="profile"
-              className="w-full h-auto"
+              className="w-1/2 md:w-full h-auto mx-auto"
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
             />
@@ -26,14 +26,14 @@ export default function Home() {
           <div className="w-1/2 flex flex-col items-center self-center">
             <AnimatedText
               text={"Turning Vision Into Reality With Code And Design."}
-              className="text-6xl text-left"
+              className="2xl:text-6xl xl:text-5xl text-center lg:text-4xl md:text-3xl sm:text-2xl"
             />
-            <p className="my-4 text-base font-medium">
+            <p className="my-4 text-sm sm:text-base font-medium">
               As a skilled full-stack developer, I am dedicated to turning ideas
               into innovative web applications. Explore my latest projects and
               articles, showcasing my expertise in React.js and web development.
             </p>
-            <div className="flex items-center self-start">
+            <div className="flex flex-col md:flex-row items-center self-start gap-4 pb-2 justify-center mb-8 md:mb-0 ">
               <Link
                 href={"/dummy.pdf"}
                 target={"_blank"}
@@ -45,7 +45,7 @@ export default function Home() {
               <Link
                 href={"mailto:ed828dev@gmail.com"}
                 target="_blank"
-                className="ml-4 text-lg font-medium capitalize text-primary underline"
+                className="text-lg font-medium capitalize text-primary underline"
               >
                 Contact
               </Link>
@@ -55,10 +55,10 @@ export default function Home() {
       </HomeLayout>
       <CircularTextButton
         text={"Front-end Developer and UI Designer"}
-        className="fixed bottom-0 left-0"
+        className="fixed top-0 -left-8 md:bottom-0 md:top-auto "
       />
       {/* <HireMe /> */}
-      <div className="absolute right-8 bottom-8 inline-block w-24">
+      <div className="absolute right-8 bottom-8 inline-block w-8 md:w-24">
         <Image
           src={"/images/svgs/miscellaneous_icons_1.svg"}
           width={200}

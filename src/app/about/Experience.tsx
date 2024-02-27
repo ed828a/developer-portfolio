@@ -26,14 +26,14 @@ const Details = ({
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between relative"
+      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-row md:flex-col items-start md:items-center md:gap-0 justify-between "
     >
       <LiIcon reference={ref} />
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
         transition={{ duration: 1, type: "spring" }}
-        className=""
+        className="ml-4"
       >
         <h3 className="capitalize font-bold text-2xl">
           {position}&nbsp;
@@ -64,9 +64,11 @@ const Experience = (props: Props) => {
   });
 
   return (
-    <div className="my-64">
-      <h2 className="font-bold text-8xl mb-32 text-center">Experience</h2>
-      <div ref={ref} className="w-[75%] mx-auto relative">
+    <div className="my-8 sm:my-16 md:my-32 lg:my-48 xl:my-64 ">
+      <h2 className="font-bold  text-3xl md:text-6xl lg:text-8xl mt-8 mb-2 md:mb-32 text-center">
+        Experience
+      </h2>
+      <div ref={ref} className="w-full md:w-[75%] mx-auto relative">
         <motion.div
           className="absolute left-[34px] top-2 w-[4px] h-full bg-primary origin-top"
           style={{ scaleY: scrollYProgress }}
