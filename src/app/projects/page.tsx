@@ -27,8 +27,8 @@ const FeaturedProject = ({
   github,
 }: FeaturedProjectProps) => {
   return (
-    <article className="w-full flex flex-col md:flex-row items-center justify-between  bg-primary-foreground relative shadow-2xl p-12 rounded-3xl border border-solid border-primary ">
-      <div className="absolute top-0 -right-4 -z-10 w-[101%] h-[103%] rounded-[2rem] rounded-br-[1.5rem] bg-primary" />
+    <article className="w-full flex flex-col md:flex-row items-center justify-between  bg-primary-foreground relative shadow-2xl p-8 md:p-12 rounded-2xl md:rounded-3xl rounded-br-2xl border border-solid border-primary ">
+      <div className="absolute top-0 -right-4 -z-10 w-[101%] h-[103%] rounded-[1.5rem] rounded-br-[1.5rem] bg-primary" />
       <Link
         href={link}
         target="_blank"
@@ -83,7 +83,7 @@ type ProjectProps = {
 const Project = ({ title, type, img, link, github }: ProjectProps) => {
   return (
     <article className="w-full flex flex-col items-center justify-center rounded-2xl border border-primary bg-primary-foreground p-6 relative">
-      <div className="absolute top-0 -right-4 -z-10 w-[103%] h-[103%] rounded-[2rem] rounded-br-[1.5rem] bg-primary" />
+      <div className="absolute top-0 -right-4 -z-10 w-[103%] h-[103%] rounded-[1.2rem] rounded-br-[1.5rem] bg-primary" />
       <Link
         href={link}
         target="_blank"
@@ -133,7 +133,7 @@ const ProjectsPage = (props: Props) => {
     <div className="mb-16 flex flex-col items-center justify-center ">
       <HomeLayout className="pt-16 relative">
         <AnimatedText text="Imagination Trumps Knowledge!" className="mb-16" />
-        <div className="grid grid-cols-12 gap-24 gap-y-32">
+        <div className="grid grid-cols-12 md:gap-x-4 lg:gap-x-8 xl:gap-x-16 2xl:gap-x-24 gap-y-8 md:gap-y-16 lg:gap-y-24">
           <div className="col-span-12">
             <FeaturedProject
               title="Crypto Screener Application"
@@ -144,7 +144,7 @@ const ProjectsPage = (props: Props) => {
               github="github.com"
             />
           </div>
-          <div className="col-span-6">
+          <div className="col-span-12 md:col-span-6">
             <Project
               title="Crypto Screener Application"
               link="/"
@@ -153,7 +153,7 @@ const ProjectsPage = (props: Props) => {
               github="github.com"
             />
           </div>
-          <div className="col-span-6">
+          <div className="col-span-12 md:col-span-6">
             <Project
               title="Crypto Screener Application"
               link="/"
@@ -172,7 +172,7 @@ const ProjectsPage = (props: Props) => {
               github="github.com"
             />
           </div>
-          <div className="col-span-6">
+          <div className="col-span-12 md:col-span-6">
             <Project
               title="Crypto Screener Application"
               link="/"
@@ -181,7 +181,7 @@ const ProjectsPage = (props: Props) => {
               github="github.com"
             />
           </div>
-          <div className="col-span-6">
+          <div className="col-span-12 md:col-span-6">
             <Project
               title="Crypto Screener Application"
               link="/"

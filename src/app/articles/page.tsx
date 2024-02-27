@@ -134,7 +134,7 @@ const ArticlesPage = (props: Props) => {
     <div className="mb-16 flex flex-col items-center justify-center ">
       <HomeLayout className="pt-16">
         <AnimatedText text="Words Can Change The World! " className="mb-16" />
-        <ul className="grid grid-cols-2 gap-16 p-4 ">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-16 p-4 ">
           <FeaturedArticle
             title="Build A Custom Pagination Component In Reactjs From Scratch"
             summary="Learn how to build a custom pagination component in ReactJS from scratch. 
